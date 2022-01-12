@@ -19,7 +19,7 @@ class BookmarkViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         query_set = super(BookmarkViewSet, self).get_queryset()        
         if self.request.user.is_authenticated:
-            query_set = Bookmark.objects.filter(public=False).filter(user=self.request.user.id)
+            query_set = Bookmark.objects.filter(user=self.request.user.id)
             extra_query_set = Bookmark.objects.filter(public=True).exclude(user=self.request.user.id)
             return query_set | extra_query_set
         return query_set
