@@ -7,7 +7,7 @@ from bookmarks.models import *
 class BookmarkSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Bookmark
-        fields = ['title', 'url', 'public', 'user', 'created_at']
+        fields = ['id','title', 'url', 'public', 'user', 'created_at']
         read_only_fields = ('user','created_at')
 
 
